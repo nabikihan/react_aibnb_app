@@ -17,7 +17,7 @@ import './App.css';
 const store = require('./reducers/index').init();
 class App extends Component {
 
-
+//这里的 意思就是，router 会展示 对应的component的内容
   render() {
 
     return (

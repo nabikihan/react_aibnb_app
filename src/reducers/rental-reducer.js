@@ -1,6 +1,8 @@
-import {FETCH_RENTALS,
-        FETCH_RENTAL_BY_ID_SUCCESS,
-        FETCH_RENTAL_BY_ID_INIT} from "../actions/types";
+import {
+    FETCH_RENTAL_BY_ID_SUCCESS,
+    FETCH_RENTAL_BY_ID_INIT,
+    FETCH_RENTALS_SUCCESS
+} from "../actions/types";
 ///////////////////reducer，作用是SWITCH STATE/////////////
 //对于本次例子，就是由空array，变成rental array
 
@@ -20,7 +22,8 @@ const INITIAL_STATE ={
 export const rentalReducer = (state = INITIAL_STATE.rentals, action) => {
    // debugger;
     switch(action.type) {
-        case FETCH_RENTALS:
+        case FETCH_RENTALS_SUCCESS:
+
             return {...state, data: action.rentals};
         default:
          return state;

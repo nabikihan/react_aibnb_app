@@ -20,6 +20,7 @@ export class RentalList extends React.Component {
     //this.props.rentals（也就是rental array）让它里面的每一个元素RENTAL, 用变量rental来标记
 
     renderRentals() {
+
         return this.props.rentals.map((rentalelement, index) => {
            // debugger;
             return (

@@ -3,6 +3,31 @@ import {RentalList} from './RentalList';
 import {connect} from 'react-redux';
 import * as actions from '../../../actions';
 
+
+
+
+///////////////////////////////////COMPOSITION////////////////////////////////////////
+//注意，这里的...THIS.PROPS 和HOC部分是一样的，是必须的，因为如果你不写...this.props， 你的connect call的是ALERTrental listing这个class
+// 它只会dispatch alertUSER这个部分给props， 你必须加上这个，就是把之前的PROPS中的所有参数打包 pass给下一个component
+
+// class AlertRentalListing extends React.Component{
+//
+//     alertUser(){
+//         alert('WAKEUP!!!!!!');
+//     }
+//     // this one render more generic components
+//     render(){
+//         return (
+//             <RentalListing {...this.props} alertUser={this.alertUser}/>
+//         )
+//
+//     }
+// }
+
+
+
+
+
 ////////////////////// rentallisting 用来转化state TO PROPS, render 租房总页面////////////////////////
 
 // remove this export, because 我们已经在下面export了，不能export两次
@@ -48,8 +73,12 @@ class RentalListing extends React.Component {
 
 /////////////////////////////dispatch////////////////////
     //我们用dispatch把actions中得到的rental array返回给props or state???，然后用map ???
+
     componentWillMount() {
-        //debugger;
+        // debugger;
+        // this.props.dangerUser();
+        // this.props.alertUser();
+
         this.props.dispatch(actions.fetchRentals());
     }
 
@@ -98,6 +127,46 @@ function mapStateToProps(state) {
         rentals: state.rentals.data
     }
 }
+
+///////////////////////HOC, higher order component/////////////////////////
+//可见它的意思就是，我input了一个component，然后我会return一个新的component
+//withALERT是个HOC, 它的input为rentallisting这个class，而在这个HOC中，我们又update props，
+// 把这个alertUSER的function给了props，它就作为props的一个部分了。
+// 然后 程序run的顺序是先走WITHALERT ，然后再显示页面
+
+// function withAlert(WrapperComponent) {
+//     return class extends React.Component{
+//         alertUser(){
+//             alert('WAKEUP!!!!!!');
+//         }
+//         render(){
+//             debugger;
+//             return <WrapperComponent {...this.props} alertUser={this.alertUser}/>
+//         }
+//     }
+// }
+//
+//
+// function withDanger(WrapperComponent) {
+//     return class extends React.Component{
+//         dangerUser(){
+//             alert('Danger!!!!!!');
+//         }
+//         render(){
+//             debugger;
+//             return <WrapperComponent {...this.props} dangerUser={this.dangerUser}/>
+//         }
+//     }
+// }
+
+
+
+////HOC test
+//export default withDanger(withAlert(connect(mapStateToProps)(RentalListing)))
+//export default withDanger(connect(mapStateToProps)(withAlert(RentalListing)))
+
+// composition test
+//export default connect(mapStateToProps)(AlertRentalListing)
 
 
 export default connect(mapStateToProps)(RentalListing)
