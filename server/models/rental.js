@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 // require必须写
+// user: because each rental should only have a user, so we use object {} here.
 const rentalSchema = new Schema({
     title: { type: String, required: true, max: [128, 'Too long, max is 128 characters']},
     city: { type: String, required: true, lowercase: true },

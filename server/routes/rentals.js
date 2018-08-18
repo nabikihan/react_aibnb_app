@@ -2,10 +2,22 @@ const express = require('express');
 const router = express.Router();
 const Rental = require('../models/rental');
 
+/////////////////////////////////////test token//////////////////////////////////////////
+const UserCtrl = require('../controllers/user');
+
+router.get('/secret', UserCtrl.authMiddleware,function(req, res){
+         res.json({"secret": true});
+});
+
+
+///////////////////////////////////rental routes//////////////////////////////////////////////
 // show 所有的data， rentallist
 router.get('', function(req, res){
    //由于find的对象为空，这个的意思就是你将会look up all the files inside our database
    // 如果没找到就是error，如果找到了就显示结果。用postman test之后，发现data会 show出来
+   //其中 foundRentals的名称并不重要，它只是 callback function的一个名称， 你叫A 也一样work， 它就是一个参数，
+   //它的作用就是承载find{}返回的数据，用.JSON显示出来。你看 router.GET中明显的对应写好了它是RES
+
    Rental.find({}, function(err, foundRentals) {
          res.json(foundRentals);
    });
