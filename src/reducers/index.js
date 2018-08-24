@@ -1,7 +1,11 @@
-
-import {rentalReducer, selectedRentalReducer} from "./rental-reducer";
 import thunk from 'redux-thunk';
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
+
+
+import {rentalReducer, selectedRentalReducer} from "./rental-reducer";
+import {authReducer} from "./auth-reducer";
+
+import {reducer as formReducer} from 'redux-form';
 
 /////////////////////store/////////////////////
 
@@ -13,11 +17,17 @@ import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 //再回到INIT, 通过调用rental-reducer中的转换state功能，我们更新了rentals。这三步就是reducer的应用过程。
 // 对于 action的部分，我们看action folder里面的code
 
+// form reducer是react的表单必须的， 是从REDUX form引入的，当你画好了表单页面，你发现并不能往空里面type东西，这时你必须import
+// form reducer来update state，这样才可以type。
+
 export const init = () => {
   //  debugger;
     const reducer = combineReducers({
         rentals: rentalReducer,
-        rental: selectedRentalReducer
+        rental: selectedRentalReducer,
+        form: formReducer,
+        auth: authReducer
+
     });
 
     const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

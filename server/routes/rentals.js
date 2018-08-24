@@ -5,6 +5,8 @@ const Rental = require('../models/rental');
 /////////////////////////////////////test token//////////////////////////////////////////
 const UserCtrl = require('../controllers/user');
 
+//secret的意思就是，当你在actions index中用了AXIOSinterceptor后，你就可以protect你的user了。如果你把路径改为
+// 原路径+secret，如下，那么你login的时候 也不会show出对应的页面，你logout的时候更不会，server会给出相应的原因。
 router.get('/secret', UserCtrl.authMiddleware,function(req, res){
          res.json({"secret": true});
 });

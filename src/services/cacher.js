@@ -1,5 +1,7 @@
 import camelCase from 'camel-case';
 
+// 就像LRU CACHE那样保存Googlemap的信息，使我们不用重复的去取值。
+
 let instance = null;
 
 export class Cacher {

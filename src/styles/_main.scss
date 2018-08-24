@@ -3,6 +3,14 @@
 
 @import 'rental/_rental-listing.scss';
 @import 'rental/_rental-detail.scss';
+@import 'form/_form.scss';
+
+// for logout button, 这个可以让鼠标点到logout button的时候，变成一个小手。
+.clickable {
+  &:hover {
+    cursor: pointer;
+  }
+}
 
 .page-title {
   font-size: 30px;
@@ -20,4 +28,17 @@
 
 .condo {
   color: #d68000;
+}
+
+.btn-bwm {
+  background-color: $main-color;
+  border-color: $main-color;
+  color: white;
+  padding: 15px 30px;
+  font-size: 20px;
+
+  &:hover, &:focus, &:active {
+    border-color: $main-color !important;
+    background-color: $main-color !important;
+  }
 }

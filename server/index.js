@@ -16,7 +16,9 @@ const FakeDb = require('./fake-db');
 // 我们用SEEDDB去call pushdata TO DB
 mongoose.connect(config.DB_URI, {useNewUrlParser: true}).then(() => {
     const fakeDB = new FakeDb();
-    fakeDB.seedDb();
+
+    //在我们加入了user之后，user可以自己在页面输入data information了，不用再往里面push了。
+    // fakeDB.seedDb();
 });
 
 
