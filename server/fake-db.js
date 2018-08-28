@@ -1,6 +1,6 @@
 const Rental = require('./models/rental');
 const User = require('./models/users');
-//const Booking = require('./models/booking');
+const Booking = require('./models/booking');
 
 const fakeDbData = require('./data.json');
 
@@ -18,15 +18,15 @@ class FakeDb {
     async cleanDb() {
         await User.remove({});
         await Rental.remove({});
-       // await Booking.remove({});
+        await Booking.remove({});
     }
 
 //////////////////push我们的dataTO database////////////////////
     pushDataToDb() {
         const user = new User(this.users[0]);
-      //  const user2 = new User(this.users[1]);
+        const user2 = new User(this.users[1]);
 
-      //iteratate the rental data
+      //iteratate the rental data， 并且把每一个rental都加上第一个user，不能一个rental对应两个user
         this.rentals.forEach((rental) => {
             const newRental = new Rental(rental);
             newRental.user = user;
@@ -36,7 +36,7 @@ class FakeDb {
 
         });
         user.save();
-       // user2.save();
+        user2.save();
 
     }
 

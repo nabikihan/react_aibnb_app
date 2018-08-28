@@ -3,6 +3,7 @@ const {normalizeErrors} = require('../helpers/mongoose');
 const jwt = require('jsonwebtoken');
 const config = require('../config/prod');
 
+//////////////////////////////////////////接route中的user， 写////callback function///////////////////////////////////////
 //////////////////////////////////////////login///////////////////////////////////////////////////////////////
 //.auth is the name of this handler， 这个callback function是来自于routes user的。
 exports.auth = function(req, res){

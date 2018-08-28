@@ -15,11 +15,13 @@ class AxiosService{
 
 
     // timeout:request get times OUT的毫秒数。
+    //注意，这里是"/API/V1"
     initInstance(){
         this.axiosInstance = axios.create({
-            baseURL:'api/v1',
+            baseURL:'/api/v1',
             timeout: 1000
         });
+
 
         // CONFIG.headers，会把BEARER存入header，你到inspector里面的network的header就能看到token了。
         this.axiosInstance.interceptors.request.use(
@@ -33,6 +35,8 @@ class AxiosService{
         return this.axiosInstance;
     }
 
+
+
     getInstance() {
         return this.axiosInstance || this.initInstance();
     }
@@ -41,3 +45,6 @@ class AxiosService{
 
 //这里export一个object， 你不能直接export class，之前我们都是用connect mapstateprops来export class的。
 export default new AxiosService();
+
+
+

@@ -45,7 +45,7 @@ class App extends Component {
                     <Header logout={this.logout} />
 
                     <div className='container'>
-                        <Route exact path='' render={() => <Redirect to='/rentals'/>} />
+                        <Route exact path='/' render={() => <Redirect to='/rentals'/>} />
                         <Route exact path='/rentals' component={RentalListing} />
                         <ProtectedRoute exact path='/rentals/:id' component={RentalDetail}/>
                         <Route exact path='/login' component={Login} />

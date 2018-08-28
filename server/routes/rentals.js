@@ -20,9 +20,12 @@ router.get('', function(req, res){
    //其中 foundRentals的名称并不重要，它只是 callback function的一个名称， 你叫A 也一样work， 它就是一个参数，
    //它的作用就是承载find{}返回的数据，用.JSON显示出来。你看 router.GET中明显的对应写好了它是RES
 
-   Rental.find({}, function(err, foundRentals) {
-         res.json(foundRentals);
-   });
+//这里我们也要选择性的写一下，加了booking之后，rentallisting page会把booking所有信息也显示，太多了，所以我们不希望展示B
+   Rental.find()
+         .select('-bookings')
+         .exec(function(err, foundRentals){
+            return res.json(foundRentals);
+         });
 
 });
 
@@ -30,13 +33,21 @@ router.get('', function(req, res){
 //paste到路径后面就可以看到这个rental的data了。
 router.get('/:id', function(req, res){
    const rentalId = req.params.id;
-   Rental.findById(rentalId, function(err, foundRental){
-      if (err) {
-         res.status(422)
-             .send({errors: [{title: 'Rental Error', data: 'Could not find Rental'}]})
-      }
-      res.json(foundRental);
-   });
+
+// 我们加了booking之后，我们要把ID和booking都show出来
+// populate rental by user data and booking data, 第二个ARGU就是restriction，我希望send给我什么，不希望send给我什么（-XX, 减号）
+    Rental.findById(rentalId)
+          .populate('user', 'username _id')
+          .populate('bookings', 'startAt endAt -_id')
+          .exec(function(err, foundRental){
+               if (err) {
+                   return res.status(422)
+                             .send({errors: [{title: 'Rental Error', data: 'Could not find Rental'}]})
+                }
+               return res.json(foundRental);
+
+          });
+
 });
 
 module.exports = router;

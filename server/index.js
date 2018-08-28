@@ -1,5 +1,6 @@
 const express = require('express');
 
+
 // 你现在把express所有的功能都assign给了这个APP 变量；
 // 你肯定是要receive http request，这样你需要让app能够listen，并且assign一个端口给它。
 const app = express();
@@ -18,7 +19,7 @@ mongoose.connect(config.DB_URI, {useNewUrlParser: true}).then(() => {
     const fakeDB = new FakeDb();
 
     //在我们加入了user之后，user可以自己在页面输入data information了，不用再往里面push了。
-    // fakeDB.seedDb();
+     //fakeDB.seedDb();
 });
 
 
@@ -34,12 +35,14 @@ app.use(bodyParser.json());
 ///////////////////////route////////////////////////
 const rentalRoutes = require('./routes/rentals');
 const userRoutes = require('./routes/users');
+const bookingRoutes = require('./routes/bookings');
 
 // middleware??? 目前你只需要知道，我们要去rentalroutes，然后我们去API这个route
 //如果你run postman，你会发现你PUT这个link：http://localhost:3001/api/v1/rentals， send之后的结果就是rentalroutes中的PAIR
 // 因为你的rentalroutes的路径是''， 所以它去这个主路径之后，直接就给出了结果。
 app.use('/api/v1/rentals', rentalRoutes);
 app.use('/api/v1/users', userRoutes);
+app.use('/api/v1/bookings', bookingRoutes);
 
 // server也需要识别路径，它要知道request是从哪个路径来，才可以去我们database拿数据，然后返回给这个路径，这样这个路径的页面才可以展示data
 // 所以我们用app get route, 之后我们会用一个CALLBACK function去得到data，然后返回给app

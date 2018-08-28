@@ -21,6 +21,7 @@ const axiosInstance = axiosService.getInstance();
 
 
 
+
 ///////////////actions， 服务器的推送或者用户的操作之类的/////////////
 //本次的例子中的actions为 得到rentals数据。
 
@@ -134,8 +135,10 @@ export const fetchRentalById = (rentalId) => {
 /////////////////////auth/register/login actions////////////////////////////////////
 // 把整个的userdata（whatever YOUR INPUT IS）传个route，也就是给server，根据server register的code
 //如果成功，则response是response，否则为error
+//我们不用写成{...USERDATA} 因为USERDATA 和之前没关系，这个是新的，newly created
+
 export const register = (userData) => {
-    return axios.post('/api/v1/users/register', {...userData})
+    return axios.post('/api/v1/users/register', userData)
                 .then(
                     res => res.data,
 
@@ -179,7 +182,7 @@ export const login = (userData) => {
     //我们想server发送请求，login信息在user data中，如果验证OK, 则拿到server返回给我们的token，把它以KEY value 的形式存储在localstorage中
     // 如果fail了，我们要catch EXCP,返回server response中的error
     return dispatch => {
-        return axios.post('/api/v1/users/auth', {...userData})
+        return axios.post('/api/v1/users/auth', userData)
             .then(res => res.data)
             .then(token => {
                 //debugger;
@@ -201,7 +204,19 @@ export const logout = () => {
     return {
         type: LOGOUT
     }
+};
+
+////////////////////////////booking////////////////////////////////////
+// 这里我们也要用AXIOS INTERCEPTOR来截取JWT
+export const createBooking = (booking) => {
+    return axiosInstance.post('/bookings', booking)
+        .then(res => res.data)
+        .catch(({response}) => Promise.reject(response.data.errors))
+    //同理，这里如果你不写reject，虽然你返回一个error，但是在booking的reserve那个function里面，
+    // 这个error会被认为是success的结果，会被作为response分配给booking
 }
+
+
 
 
 
