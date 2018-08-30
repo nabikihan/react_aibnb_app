@@ -20,8 +20,9 @@ import {reducer as formReducer} from 'redux-form';
 // form reducer是react的表单必须的， 是从REDUX form引入的，当你画好了表单页面，你发现并不能往空里面type东西，这时你必须import
 // form reducer来update state，这样才可以type。
 
+
+////STEP 1////
 export const init = () => {
-  //  debugger;
     const reducer = combineReducers({
         rentals: rentalReducer,
         rental: selectedRentalReducer,

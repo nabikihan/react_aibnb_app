@@ -4,13 +4,16 @@ import {
     FETCH_RENTALS_SUCCESS,
     LOGIN_SUCCESS,
     LOGIN_FAILURE,
-    LOGOUT
+    LOGOUT,
+    FETCH_RENTALS_INIT,
+    FETCH_RENTALS_FAIL
 } from "./types";
 import axios from 'axios';
 import authService from '../services/auth-service';
 import axiosService from '../services/axios-service';
 
 
+////STEP 4////
 
 //////////////////////////////////axios service////////////////////////////////////
 //我们import的是一个object， 然后我们调用里面的function。
@@ -42,6 +45,20 @@ const fetchRentalByIdSuccess = (rental) => {
 
 };
 
+// 如果成功则直接返回，不用写error
+const fetchRentalsInit = () => {
+    return {
+        type: FETCH_RENTALS_INIT
+    }
+}
+
+const fetchRentalsFail = (errors) => {
+    return {
+        type: FETCH_RENTALS_FAIL,
+        errors
+    }
+}
+
 
 /////////////////////rental list////////////////////////////////////
 // actions are objects, so you need to return objects from a function.
@@ -57,7 +74,11 @@ const fetchRentalsSuccess = (rentals) =>{
 
 };
 
-export const fetchRentals = () => {
+
+// 有了query parameter之后，我们可以把city作为input输入进去
+export const fetchRentals = (city) => {
+
+    const url = city ? `/rentals?city=${city}` : '/rentals';
 
     //这个code很明显，AXIOS先把这个get rentals 的request send给link TO server，然后（then）拿到server的数据之后(也就是RENTALS对应的rentallist的数据)，
     // 开始dispatch the action（rentallist数据） TO reducer,
@@ -85,11 +106,14 @@ export const fetchRentals = () => {
 
 //在使用了AXIOS INTERCEPTOR之后
     return dispatch => {
-        axiosInstance.get('/rentals')
+        //每次我们send city searching request的时候，我们都要reset data，清空
+        dispatch(fetchRentalsInit());
+
+        axiosInstance.get(url)
             .then((res) => res.data)
-            .then(rentals =>
-                dispatch(fetchRentalsSuccess(rentals))
-            );
+            .then(rentals => dispatch(fetchRentalsSuccess(rentals)))
+            .catch(({response}) => dispatch(fetchRentalsFail(response.data.errors)))
+
     };
 
 };
@@ -153,8 +177,11 @@ export const register = (userData) => {
 // token is response that we are getting from the server, 如果成功的就是JWT的加密信息。
 // 我们不再需要token，因为如果login SUCCESS之后，就可以直接把token存入local storage了，不需要这里写
 const loginSuccess = () => {
+
+    const username = authService.getUsername();
     return {
         type: LOGIN_SUCCESS,
+        username
     }
 }
 
@@ -214,9 +241,17 @@ export const createBooking = (booking) => {
         .catch(({response}) => Promise.reject(response.data.errors))
     //同理，这里如果你不写reject，虽然你返回一个error，但是在booking的reserve那个function里面，
     // 这个error会被认为是success的结果，会被作为response分配给booking
+};
+
+
+////////////////////////////CREATE RENTALS////////////////////////////////////
+
+export const createRental = (rentalData) => {
+    return axiosInstance.post('/rentals', rentalData).then(
+        res => res.data,
+        err => Promise.reject(err.response.data.errors)
+    )
 }
-
-
 
 
 

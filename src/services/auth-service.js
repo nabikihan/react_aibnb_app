@@ -40,6 +40,14 @@ class AuthService{
         return (token && this.isValid(token)) ? true : false;
     }
 
+
+//////////////////////从token中获得username，并且把它显示在header中///////////////////////
+    // username是我们在server中设controller user中好的，直接调用。
+
+    getUsername() {
+        return this.decode(this.getToken()).username;
+    }
+
 //////////////////////logout and invalidate user///////////////////////
 
     invalidateUser() {
