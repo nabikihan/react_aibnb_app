@@ -14,6 +14,30 @@ router.get('/secret', UserCtrl.authMiddleware,function(req, res){
 });
 
 
+
+///////////////////////////////////endpoint，MANAGE rental////////////////////////////////////////////
+//注意这个function必须写在.GET(ID)的前面，因为如果你写在GETID的后面，先run GET ID , 由于你写的manage路径正好符合GET ID 的route格式，
+//但是manage这个词明显不是rentalID，所以 GET ID 这个函数会报错。你的程序就不会往下run了。
+
+router.get('/manage',  UserCtrl.authMiddleware, function(req, res) {
+  const user = res.locals.user;
+
+  // 该user是从request里面得到的。
+  // 关于为啥是found rentals，你的这个router就是为了展示rentals。
+  Rental
+    .where({user})
+    .populate('bookings')
+    .exec(function(err, foundRentals) {
+
+        if (err) {
+          return res.status(422).send({errors: normalizeErrors(err.errors)});
+        }
+
+        return res.json(foundRentals);
+  });
+});
+
+
 ///////////////////////////////////rentalID routes//////////////////////////////////////////////
 
 //这个是show 单独的data，即每一个rental的data，你要refresh你的MLAB ，然后把某个rental的IDcopy出来，
@@ -78,7 +102,7 @@ router.get('', function(req, res){
 });
 
 ///////////////////////////////////endpoint， create NEW rental////////////////////////////////////////////
-//？？？为啥这里需要middleWAR？？？
+//为啥这里需要middleWAR？因为我们要authorized这个动作
 router.post('', UserCtrl.authMiddleware, function(req, res) {
   const { title, city, street, category, image, shared, bedrooms, description, dailyRate } = req.body;
   const user = res.locals.user;
@@ -97,6 +121,54 @@ router.post('', UserCtrl.authMiddleware, function(req, res) {
     return res.json(newRental);
   });
 });
+
+
+
+///////////////////////////////////endpoint， DELETE rental////////////////////////////////////////////
+//为啥这里需要middleWAR？因为我们要authorized这个delete
+// 这里的populate比较复杂，首先我们要关联user的ID，同时还要关联booking的startAT 时间，match就是比较关联的
+// startAT 和当前的时间（ new data（））， 要令booking的开始时间大于当前时间（即这个book的时间是valid的， 如果
+//这些都满足，说明这个active的book，则
+
+router.delete('/:id', UserCtrl.authMiddleware, function(req, res) {
+  const user = res.locals.user;
+
+  Rental
+    .findById(req.params.id)
+    .populate('user', '_id')
+    .populate({
+      path: 'bookings',
+      select: 'startAt',
+      match: { startAt: { $gt: new Date()}}
+    })
+    .exec(function(err, foundRental) {
+
+    if (err) {
+      return res.status(422).send({errors: normalizeErrors(err.errors)});
+    }
+
+    if (user.id !== foundRental.user.id) {
+      return res.status(422).send({errors: [{title: 'Invalid User!', detail: 'You are not rental owner!'}]});
+    }
+
+    // book IS found with this rental
+    if (foundRental.bookings.length > 0) {
+      return res.status(422).send({errors: [{title: 'Active Bookings!', detail: 'Cannot delete rental with active bookings!'}]});
+    }
+
+
+    //如果即是当前user，而它的book不是active，则可以删除，删除之后如果返回database出问题则返回error，如果一切顺利，则返回一个JSON说明结果
+    foundRental.remove(function(err) {
+      if (err) {
+        return res.status(422).send({errors: normalizeErrors(err.errors)});
+      }
+
+      return res.json({'status': 'deleted'});
+    });
+  });
+});
+
+
 
 
 module.exports = router;

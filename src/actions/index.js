@@ -6,7 +6,11 @@ import {
     LOGIN_FAILURE,
     LOGOUT,
     FETCH_RENTALS_INIT,
-    FETCH_RENTALS_FAIL
+    FETCH_RENTALS_FAIL,
+
+    FETCH_USER_BOOKINGS_SUCCESS,
+    FETCH_USER_BOOKINGS_FAIL,
+    FETCH_USER_BOOKINGS_INIT
 } from "./types";
 import axios from 'axios';
 import authService from '../services/auth-service';
@@ -64,7 +68,7 @@ const fetchRentalsFail = (errors) => {
 // actions are objects, so you need to return objects from a function.
 //这种ARROW function的写法就是把object和得到它的function直接相连， 很灵活。
 // type is necessary for actions
-// rentals这个参数是怎么规定的呢， 见redux的action模版
+// rentals这个参数是server返回的，成功的话就会返回rentals数据
 
 const fetchRentalsSuccess = (rentals) =>{
     return {
@@ -233,7 +237,7 @@ export const logout = () => {
     }
 };
 
-////////////////////////////booking////////////////////////////////////
+////////////////////////////booking rentals////////////////////////////////////
 // 这里我们也要用AXIOS INTERCEPTOR来截取JWT
 export const createBooking = (booking) => {
     return axiosInstance.post('/bookings', booking)
@@ -251,7 +255,53 @@ export const createRental = (rentalData) => {
         res => res.data,
         err => Promise.reject(err.response.data.errors)
     )
+};
+
+
+////////////////////////////USER manage////////////////////////////////////
+export const getUserRentals = () => {
+    return axiosInstance.get('/rentals/manage').then(
+        res => res.data,
+        err => Promise.reject(err.response.data.errors)
+    )
 }
 
+export const deleteRental = (rentalId) => {
+    return axiosInstance.delete(`/rentals/${rentalId}`).then(
+        res => res.data,
+        err => Promise.reject(err.response.data.errors))
+}
 
+////////////////////////////BOOKINGS manage////////////////////////////////////
 
+const fetchUserBookingsInit = () => {
+    return {
+        type: FETCH_USER_BOOKINGS_INIT
+    }
+}
+
+//如果成功，则我们会从后端拿到userbook的数据，这里就是参数
+const fetchUserBookingsSuccess = (userBookings) => {
+    return {
+        type: FETCH_USER_BOOKINGS_SUCCESS,
+        userBookings
+    }
+}
+//如果失败，则我们会从后端拿到error，这里就是参数
+const fetchUserBookingsFail = (errors) => {
+    return {
+        type: FETCH_USER_BOOKINGS_FAIL,
+        errors
+    }
+}
+
+export const fetchUserBookings = () => {
+    return dispatch => {
+        dispatch(fetchUserBookingsInit());
+
+        axiosInstance.get('/bookings/manage')
+            .then(res => res.data )
+            .then(userBookings => dispatch(fetchUserBookingsSuccess(userBookings)))
+            .catch(({response}) => dispatch(fetchUserBookingsFail(response.data.errors)))
+    }
+}

@@ -9,6 +9,9 @@ const UserCtrl = require('../controllers/user');
 router.post('', UserCtrl.authMiddleware, BookingCtrl.createBooking);
 
 
-//router.post('/manage', BookingCtrl.getUserBookings);
+//////////////////////////////////manage book/////////////////////////////////////////////
+//其实这里的BookingCtrl.getUserBookings和rental manage写法一样，但是我们把它写在bookingCTRL文件里
+
+router.get('/manage', UserCtrl.authMiddleware, BookingCtrl.getUserBookings);
 
 module.exports = router;

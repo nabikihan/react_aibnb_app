@@ -7,6 +7,7 @@ export const rentalType = isShared => isShared ? 'shared' : 'entire';
 
 export const toUpperCase = value => value? titleize(value) : '';
 
+export const pretifyDate = date => moment(date).format('MMM Do YY')
 
 
 /////////////////////////////////////booking-calendar////////////////////////////////

@@ -4,11 +4,13 @@ import {getRangeOfDates} from "../../helpers";
 import {BookingModal} from "./BookingModal";
 import { ToastContainer, toast } from 'react-toastify';
 
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import * as moment from 'moment';
 import * as actions from '../../actions';
 
 
-export class Booking extends React.Component {
+class Booking extends React.Component {
 
     constructor() {
         super();
@@ -142,13 +144,21 @@ export class Booking extends React.Component {
 
 
      // 对应close， 关闭modal这个popup window
+    // cancelConfirmation() {
+    //     this.setState({
+    //         modal: {
+    //             open: false
+    //         }
+    //     })
+    //  }
+
     cancelConfirmation() {
         this.setState({
             modal: {
                 open: false
             }
         })
-     }
+    }
 
 /////////////////////reserve action/////////////////////////////
     //这个和actions中的index有关, 当我点击了reserve button，相当于我create一个action
@@ -192,7 +202,7 @@ export class Booking extends React.Component {
 //////////////////////render/////////////////////
 
     render() {
-        const {rental} = this.props;
+        const {rental, auth:{isAuth}} = this.props;
 
         //当我们没有提供它们三中的任何一样，button都不可以被click
         const {startAt, endAt, guests} = this.state.proposedBooking;
@@ -203,40 +213,60 @@ export class Booking extends React.Component {
                 <ToastContainer />
                 <h3 className='booking-price'>$ {rental.dailyRate} <span className='booking-per-night'>per night</span></h3>
                 <hr></hr>
-                <div className='form-group'>
-                    <label htmlFor='dates'>Dates</label>
-                    <DateRangePicker onApply={this.handleApply}
-                                     isInvalidDate={this.checkInvalidDates}
-                                     opens='left'
-                                     containerStyles={{display: 'block'}}>
-                        <input ref={this.dateRef}
-                               id='dates'
-                               type='text'
-                               className='form-control'></input>
-                    </DateRangePicker>
-                </div>
-                <div className='form-group'>
-                    <label htmlFor='guests'>Guests</label>
-                    <input onChange={(event) => {this.selectGuests(event)}}
-                           value={guests}
-                           type='number'
-                           className='form-control'
-                           id='guests'
-                           aria-describedby='guests'
-                           placeholder=''></input>
-                </div>
-                <button disabled={!startAt || !endAt || !guests}
-                        onClick={() => this.confirmProposedData()}
-                        className='btn btn-bwm btn-confirm btn-block'>Reserve place now</button>
+
+                {/*这里就是如果我没有login呢，则建立一个button，给我导入到login的page*/}
+
+                { !isAuth &&
+                <Link className='btn btn-bwm btn-confirm btn-block' to={{pathname: '/login'}}>
+                    Login to book place
+                </Link>
+                }
+
+                {/*这里如果你不用react fragment就会出现error，因为JSX 不可以 wrapped多个tag，你这里有个DIV ， 然后你还有个button*/}
+                {/*我们之前的做法是外面再套一个DIV ， 如果套太多则不好，所以用react fragment，这样里面就可以加很多tag了。*/}
+
+                {  isAuth &&
+                    <React.Fragment>
+                        <div className='form-group'>
+                            <label htmlFor='dates'>Dates</label>
+                            <DateRangePicker onApply={this.handleApply}
+                                             isInvalidDate={this.checkInvalidDates}
+                                             opens='left'
+                                             containerStyles={{display: 'block'}}>
+                                <input ref={this.dateRef}
+                                       id='dates'
+                                       type='text'
+                                       className='form-control'>
+
+                                </input>
+                            </DateRangePicker>
+                        </div>
+                        <div className='form-group'>
+                          <label htmlFor='guests'>Guests</label>
+                          <input onChange={(event) => {this.selectGuests(event)}}
+                                 value={guests}
+                                 type='number'
+                                 className='form-control'
+                                 id='guests'
+                                 aria-describedby='guests'
+                                 placeholder=''>
+                          </input>
+                        </div>
+                        <button disabled={!startAt || !endAt || !guests}
+                                onClick={() => this.confirmProposedData()}
+                                className='btn btn-bwm btn-confirm btn-block'>Reserve place now</button>
+                    </React.Fragment>
+                }
+
                 <hr></hr>
                 <p className='booking-note-title'>People are interested into this house</p>
                 <p className='booking-note-text'>
                     More than 500 people checked this rental in last month.
                 </p>
 
-                {/*//显示bookingmodal，把参数传给它。booking就是你在各个function中update的proposeBooking中设置的参数*/}
+                {/*显示bookingmodal，把参数传给它。booking就是你在各个function中update的proposeBooking中设置的参数*/}
                 <BookingModal open={this.state.modal.open}
-                              closeModel={this.cancelConfirmation}
+                              closeModal={this.cancelConfirmation}
                               confirmModal ={this.reserveRental}
                               booking={this.state.proposedBooking}
                               rentalPrice={rental.dailyRate}
@@ -251,5 +281,15 @@ export class Booking extends React.Component {
 
 
 }
+
+
+
+function mapStateToProps(state) {
+    return {
+        auth: state.auth
+    }
+}
+
+export default connect(mapStateToProps)(Booking)
 
 
