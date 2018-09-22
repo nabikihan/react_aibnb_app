@@ -5,12 +5,6 @@ import { pretifyDate, toUpperCase } from '../../../helpers';
 export function BookingCard(props) {
 
     const { booking } = props;
-
-
-    //无论是否delete了，都要显示一些book的基本信息。
-    // delete这个情况，是当user booked 一个rental，这时我们把该rental删除（你要删除的是rental，不是你自己的booking）这时显示
-    // 你被deleted 的这个rental的信息，你book它的细节。
-
     return (
         <div className="col-md-4">
             <div className="card text-center">

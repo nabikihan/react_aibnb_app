@@ -9,7 +9,6 @@ export class FileUpload extends React.Component {
         this.onChange = this.onChange.bind(this);
     }
 
-    //这个写法 我们在calendar中讲过，check笔记，主要是针对input对象的获得。
     onChange(event) {
         const {input: {onChange}} = this.props;
 

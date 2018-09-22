@@ -5,15 +5,9 @@ import { TextArea } from '../../shared/form/TextArea';
 import { Select } from '../../shared/form/Select';
 import { FileUpload } from '../../shared/form/FileUpload';
 import { ResErrors } from '../../shared/form/ResError';
-// import { required, minLength4 } from 'components/shared/form/validators';
 
 const RentalCreateForm = props => {
 
-    // handlesubmit 这个是模版格式，见register，无需质疑。 submitCB就是一个object，你写完表单之后，点submit，这些value就会存入submitCB ,就可以被传给
-    // rentalcreate了
-
-    // textarea: rows 就是能显示多少行
-    // options：具体在rentalcreate 中的constructor里规定。对应shared中的select文件
    const { handleSubmit, pristine, submitting, submitCb, valid, options, errors } = props;
     return (
         <form onSubmit={handleSubmit(submitCb)}>
@@ -88,7 +82,6 @@ const RentalCreateForm = props => {
     )
 }
 
-//规定起始值，不然他俩没有起始值就不合常理
 export default reduxForm({
     form: 'rentalCreateForm',
      initialValues: { shared: false, category: 'apartment'}

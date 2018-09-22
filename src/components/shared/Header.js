@@ -10,12 +10,7 @@ class Header extends React.Component {
         this.handleLogout = this.handleLogout.bind(this);
     }
 
-////////////////////////////redirect logout////////////////////
-    //当我们进入rentalID页面 logout之后回到bookwithme的主页面，也就是rentallisting页面
-
     handleLogout() {
-        //由于你用了hOC来让header添加了props，因此你才可以这里用THIS.PROPS.XXX
-        debugger;
         this.props.logout();
         this.props.history.push('/rentals');
     }
@@ -25,8 +20,6 @@ class Header extends React.Component {
         if (isAuth) {
             return <a className='nav-item nav-link clickable' onClick={this.handleLogout}>Logout</a>
         }
-
-        //这里我们要用react fragment，否则这两个button就是上下的位置
         return (
             <React.Fragment>
                 <Link className='nav-item nav-link' to='/login'>Login <span className='sr-only'>(current)</span></Link>
@@ -35,9 +28,6 @@ class Header extends React.Component {
          )
     }
 
-
-
-////////////////////显示username 以及 汉堡包下拉框//////////////////////////////////
     renderOwnerSection(isAuth) {
         if (isAuth) {
             return (
@@ -58,7 +48,6 @@ class Header extends React.Component {
 
     render(){
 
-        //显示username, 你设置这个isAUTH ，就是为了当你login的时候，才会显示username，LOGOUT的时候则不会显示
         const {username, isAuth} = this.props.auth;
 
         return (
@@ -93,7 +82,4 @@ function mapStateToProps(state) {
     }
 }
 
-
-// HOC, 这样我们可以让header有AUTH properties, 也就是把它加到props中。
 export default withRouter(connect(mapStateToProps)(Header))
-//export default connect(mapStateToProps)(Header)

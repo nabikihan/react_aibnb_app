@@ -4,13 +4,9 @@ import { withRouter } from 'react-router-dom';
 class RentalSearchInput extends React.Component{
     constructor() {
         super();
-
-        //通过React.createRef()来创建searchinput这个参数，并且把它与input关联，也就是你的input是啥，这个input就被
-        //转化为这个searchinput参数
         this.searchInput = React.createRef();
     }
 
-    //输入的city的格式，我们在server中已经设为都用小写
     handleSearch() {
         const {history} = this.props;
         const city = this.searchInput.current.value;
@@ -18,19 +14,12 @@ class RentalSearchInput extends React.Component{
         city? history.push(`/rentals/${city}/homes`) : history.push('/rentals');
     }
 
-
-    ////////handle 键盘点击enter////////////
     handleKeyPress(event) {
 
         if (event.key === 'Enter') {
             this.handleSearch();
         }
     }
-
-
-    ////////对于handle 多次search，在rentalsearch listing中////////////
-
-
 
 
     render() {

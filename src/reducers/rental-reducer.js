@@ -5,9 +5,6 @@ import {
     FETCH_RENTALS_INIT,
     FETCH_RENTALS_FAIL
 } from "../actions/types";
-///////////////////reducer，作用是SWITCH STATE/////////////
-//对于本次例子，就是由空array，变成rental array
-// 加error的参数是因为 fetch rentals fail.
 
 const INITIAL_STATE ={
     rentals: {
@@ -15,16 +12,12 @@ const INITIAL_STATE ={
         errors: []
     },
 
-    // 单独的元素，是个对象，因此用大括号
     rental:{
         data:{}
     }
 }
 
-////STEP 2////
-////STEP 3 是页面的componentwillmount中的dispatch action
 /////////////////////rental list///////////////////////////////////
-// ...state means previous state
 export const rentalReducer = (state = INITIAL_STATE.rentals, action) => {
 
     switch(action.type) {

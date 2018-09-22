@@ -1,9 +1,5 @@
 import React from 'react';
 
-
-//我们把register validation的error message show 出来, 我们把这个CONST 传给 registerform中的每个元素
-
-// symbol for dailyrate dollar sign
 export const InputError = ({
                          input,
                          label,
