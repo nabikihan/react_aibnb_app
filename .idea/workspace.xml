@@ -1,60 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b3e4a356-b37f-4f7a-a615-3191776c1ddc" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/booking.js" afterPath="$PROJECT_DIR$/server/controllers/booking.js" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/user.js" afterPath="$PROJECT_DIR$/server/controllers/user.js" />
-      <change beforePath="$PROJECT_DIR$/server/fake-db.js" afterPath="$PROJECT_DIR$/server/fake-db.js" />
-      <change beforePath="$PROJECT_DIR$/server/helpers/mongoose.js" afterPath="$PROJECT_DIR$/server/helpers/mongoose.js" />
-      <change beforePath="$PROJECT_DIR$/server/index.js" afterPath="$PROJECT_DIR$/server/index.js" />
-      <change beforePath="$PROJECT_DIR$/server/models/rental.js" afterPath="$PROJECT_DIR$/server/models/rental.js" />
-      <change beforePath="$PROJECT_DIR$/server/models/users.js" afterPath="$PROJECT_DIR$/server/models/users.js" />
-      <change beforePath="$PROJECT_DIR$/server/routes/bookings.js" afterPath="$PROJECT_DIR$/server/routes/bookings.js" />
-      <change beforePath="$PROJECT_DIR$/server/routes/rentals.js" afterPath="$PROJECT_DIR$/server/routes/rentals.js" />
-      <change beforePath="$PROJECT_DIR$/server/routes/users.js" afterPath="$PROJECT_DIR$/server/routes/users.js" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" afterPath="$PROJECT_DIR$/src/App.css" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" afterPath="$PROJECT_DIR$/src/App.js" />
-      <change beforePath="$PROJECT_DIR$/src/actions/index.js" afterPath="$PROJECT_DIR$/src/actions/index.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/booking/Booking.js" afterPath="$PROJECT_DIR$/src/components/booking/Booking.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/booking/BookingModal.js" afterPath="$PROJECT_DIR$/src/components/booking/BookingModal.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/booking/booking-manage/BookingCard.js" afterPath="$PROJECT_DIR$/src/components/booking/booking-manage/BookingCard.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/booking/booking-manage/BookingManage.js" afterPath="$PROJECT_DIR$/src/components/booking/booking-manage/BookingManage.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/login/Login.js" afterPath="$PROJECT_DIR$/src/components/login/Login.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/login/LoginForm.js" afterPath="$PROJECT_DIR$/src/components/login/LoginForm.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/map/GoogleMap.js" afterPath="$PROJECT_DIR$/src/components/map/GoogleMap.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/register/Register.js" afterPath="$PROJECT_DIR$/src/components/register/Register.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/register/RegisterForm.js" afterPath="$PROJECT_DIR$/src/components/register/RegisterForm.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/rental/RentalSearchInput.js" afterPath="$PROJECT_DIR$/src/components/rental/RentalSearchInput.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/rental/rental-create/RentalCreate.js" afterPath="$PROJECT_DIR$/src/components/rental/rental-create/RentalCreate.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/rental/rental-create/RentalCreateForm.js" afterPath="$PROJECT_DIR$/src/components/rental/rental-create/RentalCreateForm.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/rental/rental-detail/RentalDetail.js" afterPath="$PROJECT_DIR$/src/components/rental/rental-detail/RentalDetail.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/rental/rental-detail/RentalDetailInfo.js" afterPath="$PROJECT_DIR$/src/components/rental/rental-detail/RentalDetailInfo.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/rental/rental-listing/RentalCard.js" afterPath="$PROJECT_DIR$/src/components/rental/rental-listing/RentalCard.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/rental/rental-listing/RentalList.js" afterPath="$PROJECT_DIR$/src/components/rental/rental-listing/RentalList.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/rental/rental-listing/RentalListing.js" afterPath="$PROJECT_DIR$/src/components/rental/rental-listing/RentalListing.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/rental/rental-listing/RentalSearchListing.js" afterPath="$PROJECT_DIR$/src/components/rental/rental-listing/RentalSearchListing.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/rental/rental-manage/RentalManage.js" afterPath="$PROJECT_DIR$/src/components/rental/rental-manage/RentalManage.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/rental/rental-manage/RentalManageCard.js" afterPath="$PROJECT_DIR$/src/components/rental/rental-manage/RentalManageCard.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/rental/rental-manage/RentalManageModal.js" afterPath="$PROJECT_DIR$/src/components/rental/rental-manage/RentalManageModal.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/shared/Header.js" afterPath="$PROJECT_DIR$/src/components/shared/Header.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/shared/auth/LoggedInRoute.js" afterPath="$PROJECT_DIR$/src/components/shared/auth/LoggedInRoute.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/shared/auth/ProtectedRoute.js" afterPath="$PROJECT_DIR$/src/components/shared/auth/ProtectedRoute.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/shared/form/FileUpload.js" afterPath="$PROJECT_DIR$/src/components/shared/form/FileUpload.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/shared/form/InputError.js" afterPath="$PROJECT_DIR$/src/components/shared/form/InputError.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/shared/form/Select.js" afterPath="$PROJECT_DIR$/src/components/shared/form/Select.js" />
-      <change beforePath="$PROJECT_DIR$/src/helpers/index.js" afterPath="$PROJECT_DIR$/src/helpers/index.js" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/auth-reducer.js" afterPath="$PROJECT_DIR$/src/reducers/auth-reducer.js" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/booking-reducer.js" afterPath="$PROJECT_DIR$/src/reducers/booking-reducer.js" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/index.js" afterPath="$PROJECT_DIR$/src/reducers/index.js" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/rental-reducer.js" afterPath="$PROJECT_DIR$/src/reducers/rental-reducer.js" />
-      <change beforePath="$PROJECT_DIR$/src/services/auth-service.js" afterPath="$PROJECT_DIR$/src/services/auth-service.js" />
-      <change beforePath="$PROJECT_DIR$/src/services/axios-service.js" afterPath="$PROJECT_DIR$/src/services/axios-service.js" />
-      <change beforePath="$PROJECT_DIR$/src/services/cacher.js" afterPath="$PROJECT_DIR$/src/services/cacher.js" />
-      <change beforePath="$PROJECT_DIR$/src/styles/_main.scss" afterPath="$PROJECT_DIR$/src/styles/_main.scss" />
-      <change beforePath="$PROJECT_DIR$/src/styles/rental/_rental-listing.scss" afterPath="$PROJECT_DIR$/src/styles/rental/_rental-listing.scss" />
-    </list>
+    <list default="true" id="b3e4a356-b37f-4f7a-a615-3191776c1ddc" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -67,11 +14,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-444">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="232">
+              <caret line="55" column="0" lean-forward="true" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="prod.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/config/prod.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="1" lean-forward="true" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dev.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server/config/dev.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="43" lean-forward="false" selection-start-line="1" selection-start-column="43" selection-end-line="1" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/config/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -93,7 +70,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/server/config/prod.js" />
         <option value="$PROJECT_DIR$/src/styles/rental/_rental-listing.scss" />
         <option value="$PROJECT_DIR$/server/config/dev.js" />
         <option value="$PROJECT_DIR$/server/controllers/user.js" />
@@ -144,6 +120,7 @@
         <option value="$PROJECT_DIR$/src/services/auth-service.js" />
         <option value="$PROJECT_DIR$/src/styles/_main.scss" />
         <option value="$PROJECT_DIR$/src/App.js" />
+        <option value="$PROJECT_DIR$/server/config/prod.js" />
       </list>
     </option>
   </component>
@@ -165,9 +142,9 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="93" />
-    <option name="y" value="45" />
-    <option name="width" value="1096" />
+    <option name="x" value="118" />
+    <option name="y" value="23" />
+    <option name="width" value="1370" />
     <option name="height" value="821" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -221,6 +198,18 @@
               <item name="lh-react-airbnb" type="b2602c69:ProjectViewProjectNode" />
               <item name="lh-react-airbnb" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lh-react-airbnb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lh-react-airbnb" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lh-react-airbnb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lh-react-airbnb" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="lh-react-airbnb" type="b2602c69:ProjectViewProjectNode" />
@@ -457,12 +446,12 @@
       <workItem from="1536265542745" duration="6302000" />
       <workItem from="1536958691729" duration="759000" />
       <workItem from="1537567616430" duration="3080000" />
-      <workItem from="1537574461802" duration="4077000" />
+      <workItem from="1537574461802" duration="5496000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="290711000" />
+    <option name="totallyTimeSpent" value="292130000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -474,16 +463,17 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="93" y="45" width="1096" height="821" extended-state="0" />
+    <frame x="118" y="23" width="1370" height="821" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292011" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39944905" sideWeight="0.5033751" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292011" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28236914" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5399449" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20930232" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28020757" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292011" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -536,38 +526,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/components/booking/BookingModal.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-24">
-          <caret line="6" column="37" lean-forward="false" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/booking/Booking.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1575">
-          <caret line="114" column="6" lean-forward="false" selection-start-line="114" selection-start-column="6" selection-end-line="114" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/booking/booking-manage/BookingManage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/booking/booking-manage/BookingCard.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="6" column="30" lean-forward="false" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/login/LoginForm.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-219">
@@ -982,10 +940,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/server/controllers/user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/server/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-444">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="232">
+          <caret line="55" column="0" lean-forward="true" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/config/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/config/prod.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="1" lean-forward="true" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/config/dev.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="43" lean-forward="false" selection-start-line="1" selection-start-column="43" selection-end-line="1" selection-end-column="43" />
           <folding />
         </state>
       </provider>
