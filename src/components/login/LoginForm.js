@@ -4,7 +4,6 @@ import {required, minLength4} from "../shared/form/LoginValidators";
 import {InputError} from "../shared/form/InputError";
 import {ResErrors} from "../shared/form/ResError";
 
-//我们把validation移动到shared folder里面的login validators
 const LoginForm = props => {
     const { handleSubmit, pristine, submitting, submitCB, valid, errors} = props;
 

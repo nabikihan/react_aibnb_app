@@ -11,7 +11,6 @@ export function RentalDetailInfo(props) {
         <div className='rental'>
             <h2 className={`rental-type ${rental.category}`}>{rentalType(rental.shared)} {rental.category}</h2>
 
-            {/*show一个user的icon，来标记是否login了*/}
             <div className='rental-owner'>
                 <img src='https://api.adorable.io/avatars/285/abott@adorable.png' alt='owner'/>
                 <span>{rental.user && rental.user.username}</span>

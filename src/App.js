@@ -9,8 +9,6 @@ import RentalSearchListing from 'components/rental/rental-listing/RentalSearchLi
 import { RentalCreate } from './components/rental/rental-create/RentalCreate';
 import { RentalManage } from 'components/rental/rental-manage/RentalManage';
 import BookingManage from 'components/booking/booking-manage/BookingManage';
-//这两个你都是export BY default，你就不需要{}
-
 import Login from './components/login/Login';
 import {Register} from './components/register/Register';
 import * as actions from 'actions';
@@ -20,15 +18,10 @@ import {LoggedInRoute} from "./components/shared/auth/LoggedInRoute";
 
 import './App.css';
 
-
-// routing, 写法和propS是一样的，就是给route赋予一个PROPS
-
 const store = require('./reducers/index').init();
 class App extends Component {
 
-    //用来了检查login的TOKEN是否之前已经在local storage里面存在
     componentWillMount() {
-        //debugger;
        store.dispatch(actions.checkAuthState());
     }
 
@@ -37,14 +30,8 @@ class App extends Component {
         store.dispatch(actions.logout());
     }
 
-
-//这里的 意思就是，router 会展示 对应的component的内容
   render() {
-
-
-        //注意，rentalcreate 一定要在rentaldetail的上面，如果在下面，则当你想打开一个rental create页面 ，app会先run detailpage，
-      //你会看见一个loading的字眼。
-  return (
+     return (
 
         <Provider store={store}>
             <BrowserRouter>
@@ -70,7 +57,7 @@ class App extends Component {
             </BrowserRouter>
         </Provider>
 
-    );
+     );
   }
 }
 

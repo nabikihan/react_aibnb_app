@@ -3,16 +3,8 @@ import Modal from 'react-responsive-modal';
 import {ResErrors} from "../shared/form/ResError";
 
 //////////////////////reserve button, show confirmation /////////////////////////////////
-//当我们click reserve这个button之后，出现一个pop up的confirmation信息
-
-//之前的模版，从官网paste过来的，我们想展示更多的信息
-// {/*<Modal open={open} onClose={closeModal} center>*/}
-//    {/*<h2>Simple centered modal</h2>*/}
-// {/*</Modal>*/}
 
 export function BookingModal(props) {
-
-// onclosemodal-when you modal is closed, you function is called
     const {open, closeModal, booking, confirmModal, rentalPrice, errors} = props;
 
     return (

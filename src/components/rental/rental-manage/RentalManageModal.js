@@ -23,9 +23,6 @@ export class RentalManageModal extends React.Component {
         this.setState({open: false});
     }
 
-
-    //react.fragment, render要求对于要返回多个标签时，要打包成一个整体
-    // <hr><hr> 这个就是画一条线作为分节符， 这里的条件是，当当前的index 不是book array的最后一个元素的时候，我们就显示一个分节符
     renderBookings(bookings) {
         return bookings.map((booking, index) =>
             <React.Fragment>
@@ -40,8 +37,6 @@ export class RentalManageModal extends React.Component {
     }
 
     render() {
-
-        //从rentalmanagecard中传入，而且已经确定有book的数据
         const { bookings } = this.props;
 
         return (

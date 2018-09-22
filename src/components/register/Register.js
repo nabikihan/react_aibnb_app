@@ -7,8 +7,6 @@ import * as actions from '../../actions';
 export class Register extends React.Component{
 
  ////////////////////show errors/////////////////////////////////////
-    // 我们要把error放到state中，然后update state，所以我们建立constructor
-
 constructor() {
     super();
 
@@ -17,17 +15,11 @@ constructor() {
         redirect: false
     };
 
-    // 当我们把error也作为state更新了之后，出现了混乱。你看在registeruser中，errors有作为它的结果出现，
-    //而render中，registeruser和errors都作为props参数，那么registeruser是属于window this，而error是由 this.setSTATE来规定的。
-    // 但是这个this.setSTATE 会UNDEFINED ，？？？
-    //我们要把它们都归为windowthis中的component， 要么你在render中用arrow function，要么你这么写
-
     this.registerUser = this.registerUser.bind(this);
 }
 
 
 ////////////////////////////////send userdata to server and get response////////////////////////////////////
-    //先去ACTION 中的index.JS中，把userdata传给server，从server中拿到response之后，回到这里返回结果。此时database已经加入了新用户
     registerUser(userData) {
         actions.register(userData)
                .then(

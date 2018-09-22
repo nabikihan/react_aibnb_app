@@ -13,25 +13,19 @@ export class RentalCreate extends React.Component{
             redirect: false
 
         };
-
-        //对应 rentalcreateform的option
+        
         this.rentalCateogies = ['apartment', 'house', 'condo'];
         this.createRental = this.createRental.bind(this);
     }
 
     ///////////////handle create button//////////////////
     createRental(rentalData) {
-
-        //先用console来check下输入的东西是否可以被传到这里。
-        //console.log(rentalData);
-
         actions.createRental(rentalData).then(
             (rental) => this.setState({redirect: true}),
             (errors) => this.setState({errors})
         )
     }
 
-    //当我们点击submit form的时候，我们要让action的到rentaldata，以及选择的option。
     render() {
 
         if (this.state.redirect) {
