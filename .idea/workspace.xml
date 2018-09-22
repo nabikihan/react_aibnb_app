@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b3e4a356-b37f-4f7a-a615-3191776c1ddc" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/user.js" afterPath="$PROJECT_DIR$/server/controllers/user.js" />
-      <change beforePath="$PROJECT_DIR$/server/index.js" afterPath="$PROJECT_DIR$/server/index.js" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" afterPath="$PROJECT_DIR$/src/App.css" />
-      <change beforePath="$PROJECT_DIR$/src/components/shared/Header.js" afterPath="$PROJECT_DIR$/src/components/shared/Header.js" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/index.js" afterPath="$PROJECT_DIR$/src/reducers/index.js" />
-      <change beforePath="$PROJECT_DIR$/src/styles/rental/_rental-listing.scss" afterPath="$PROJECT_DIR$/src/styles/rental/_rental-listing.scss" />
-    </list>
+    <list default="true" id="b3e4a356-b37f-4f7a-a615-3191776c1ddc" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -364,12 +355,12 @@
       <workItem from="1536265542745" duration="6302000" />
       <workItem from="1536958691729" duration="759000" />
       <workItem from="1537567616430" duration="4474000" />
-      <workItem from="1537582482034" duration="682000" />
+      <workItem from="1537582482034" duration="763000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="288710000" />
+    <option name="totallyTimeSpent" value="288791000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
